@@ -12,17 +12,12 @@
 ;;; Code:
 
 (defun spacemacs//lsp-intellij-setup-company ()
-  (spacemacs|add-company-backends :backends company-lsp
-                                  :modes java-mode kotlin-mode
-                                  :variables company-lsp-enable-snippet t
-                                  company-transformers nil
-                                  company-lsp-async t
-                                  company-idle-delay 0.5
-                                  company-minimum-prefix-length 1
-                                  company-lsp-cache-candidates t
-                                  :hooks nil)
-  (spacemacs//init-company-java-mode)
-  (spacemacs//init-company-kotlin-mode)
+  (spacemacs|add-company-backends
+    :backends (:separate company-lsp)
+    :modes java-mode kotlin-mode
+    :variables
+    company-transformers nil
+    company-lsp-async t)
   (company-mode))
 
 (defun spacemacs//lsp-intellij-setup-leader-keys (mode)

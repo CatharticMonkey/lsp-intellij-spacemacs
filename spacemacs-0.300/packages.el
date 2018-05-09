@@ -20,8 +20,8 @@
   (add-hook 'java-mode-local-vars-hook #'spacemacs//lsp-intellij-setup-company))
 
 (defun lsp-intellij/post-init-flycheck ()
-  (add-hook 'java-mode-hook 'flycheck-mode)
-  (add-hook 'kotlin-mode-hook 'flycheck-mode))
+  (add-hook 'java-mode-local-vars-hook 'flycheck-mode)
+  (add-hook 'kotlin-mode-local-vars-hook 'flycheck-mode))
 
 (defun lsp-intellij/init-lsp-intellij ()
   (with-eval-after-load 'lsp-mode
@@ -55,7 +55,7 @@
           (kbd "M-.") 'xref-find-definitions
           (kbd "M-,") 'pop-tag-mark))
 
-      (add-hook 'java-mode-hook #'lsp-intellij-enable)
-      (add-hook 'kotlin-mode-hook #'lsp-intellij-enable))))
+      (add-hook 'java-mode-local-vars-hook #'lsp-intellij-enable)
+      (add-hook 'kotlin-mode-local-vars-hook #'lsp-intellij-enable))))
 
 ;;; packages.el ends here
