@@ -17,6 +17,7 @@
     (lsp-intellij :location (recipe :fetcher github :repo "Ruin0x11/lsp-intellij"))))
 
 (defun lsp-intellij/post-init-company ()
+  (add-hook 'kotlin-mode-local-vars-hook #'spacemacs//lsp-intellij-setup-company)
   (add-hook 'java-mode-local-vars-hook #'spacemacs//lsp-intellij-setup-company))
 
 (defun lsp-intellij/post-init-flycheck ()
